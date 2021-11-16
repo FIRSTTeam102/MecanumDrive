@@ -5,20 +5,20 @@
 #include "RobotContainer.h"
 
 RobotContainer::RobotContainer() {
-  // Initialize all of your commands and subsystems here
+	// Initialize all of your commands and subsystems here
 
-  mMecanumDrive.SetDefaultCommand(std::move(mRunMecanumDrive));
-  mMecanumDrive.setController(&mDriverController);
+	mMecanumDrive.SetDefaultCommand(std::move(mRunMecanumDrive));
+	mMecanumDrive.setController(&mDriverController);
 
-  // Configure the button bindings
-  ConfigureButtonBindings();
+	// Configure the button bindings
+	ConfigureButtonBindings();
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-  // Configure your button bindings here
+	// Configure your button bindings here
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
-  // An example command will be run in autonomous
-  return nullptr;
+	// An example command will be run in autonomous
+	return nullptr;
 }

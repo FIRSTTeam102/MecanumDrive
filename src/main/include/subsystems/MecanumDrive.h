@@ -12,29 +12,35 @@
 #include "Constants.h"
 
 class MecanumDrive : public frc2::SubsystemBase {
- public:
-  MecanumDrive();
-  void setController(frc::XboxController *pDriverController) {
-   mpDriverController = pDriverController;
-  }
+	public:
+		MecanumDrive();
 
-  void drive();
+		void setController(frc::XboxController *pDriverController) {
+			mpDriverController = pDriverController;
+		}
 
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
-  void Periodic() override;
+		void drive();
+		void fasterDrive();
+		void slowerDrive();
 
- private:
-  // Components (e.g. motor controllers and sensors) should generally be
-  // declared private and exposed only through public methods.
+		/**
+		* Will be called periodically whenever the CommandScheduler runs.
+		*/
+		void Periodic() override;
 
-  frc::XboxController *mpDriverController;
+	private:
+		// Components (e.g. motor controllers and sensors) should generally be
+		// declared private and exposed only through public methods.
 
-  WPI_TalonFX mFrontLeftMotor;
-  WPI_TalonFX mRearLeftMotor;
-  WPI_TalonFX mFrontRightMotor;
-  WPI_TalonFX mRearRightMotor;
+		frc::XboxController *mpDriverController;
 
-  frc::MecanumDrive mMecanumDrive{mFrontLeftMotor, mRearLeftMotor, mFrontRightMotor, mRearRightMotor};
+		WPI_TalonFX mFrontLeftMotor;
+		WPI_TalonFX mRearLeftMotor;
+		WPI_TalonFX mFrontRightMotor;
+		WPI_TalonFX mRearRightMotor;
+
+		frc::MecanumDrive mMecanumDrive{mFrontLeftMotor, mRearLeftMotor, mFrontRightMotor, mRearRightMotor};
+
+		double mSpeed = 0.85;
+		bool mFlipped = false;
 };

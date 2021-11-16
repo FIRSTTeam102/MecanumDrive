@@ -9,27 +9,19 @@
 
 #include "subsystems/MecanumDrive.h"
 
-/**
- * An example command.
- *
- * <p>Note that this extends CommandHelper, rather extending CommandBase
- * directly; this is crucially important, or else the decorator functions in
- * Command will *not* work!
- */
-class RunMecanumDrive
-    : public frc2::CommandHelper<frc2::CommandBase, RunMecanumDrive> {
- public:
-  RunMecanumDrive(MecanumDrive* pMecanumDrive);
+class RunMecanumDrive : public frc2::CommandHelper<frc2::CommandBase, RunMecanumDrive> {
+	public:
+		RunMecanumDrive(MecanumDrive* pMecanumDrive);
 
-  void Initialize() override;
+		void Initialize() override;
 
-  void Execute() override;
+		void Execute() override;
 
-  void End(bool interrupted) override;
+		void End(bool interrupted) override;
 
-  bool IsFinished() override;
+		bool IsFinished() override;
 
- private:
-  MecanumDrive* mpMecanumDrive;
-  frc::XboxController* mpDriverController;
+	private:
+		MecanumDrive* mpMecanumDrive;
+		frc::XboxController* mpDriverController;
 };
