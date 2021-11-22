@@ -14,7 +14,7 @@
  * they are needed.
  */
 
-int constexpr kFrontLeftMotor = 0;
-int constexpr kRearLeftMotor = 1;
-int constexpr kFrontRightMotor = 2;
-int constexpr kRearRightMotor = 3;
+int constexpr kFrontLeftMotor = 1;
+int constexpr kRearLeftMotor = 2;
+int constexpr kFrontRightMotor = 3;
+int constexpr kRearRightMotor = 4;
