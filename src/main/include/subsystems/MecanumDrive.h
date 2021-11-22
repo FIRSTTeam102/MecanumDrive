@@ -22,6 +22,7 @@ class MecanumDrive : public frc2::SubsystemBase {
 		void drive();
 		void fasterDrive();
 		void slowerDrive();
+		void flipDrive();
 
 		/**
 		* Will be called periodically whenever the CommandScheduler runs.
