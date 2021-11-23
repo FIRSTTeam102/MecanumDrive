@@ -14,6 +14,7 @@
 #include "commands/RunMecanumDrive.h"
 #include "commands/FasterDrive.h"
 #include "commands/SlowerDrive.h"
+#include "commands/FlipDrive.h"
 
 /**
 	* This class is where the bulk of the robot should be declared.  Since
@@ -53,4 +54,5 @@ class RobotContainer {
 		RunMecanumDrive mRunMecanumDrive{&mMecanumDrive};
 		FasterDrive mFasterDriveCommand{&mMecanumDrive};
 		SlowerDrive mSlowerDriveCommand{&mMecanumDrive};
+		FlipDrive mFlipDriveCommand{&mMecanumDrive};
 };

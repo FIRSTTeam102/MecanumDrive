@@ -16,6 +16,9 @@ RobotContainer::RobotContainer() {
 
 void RobotContainer::ConfigureButtonBindings() {
 	// Configure your button bindings here
+	mDriverUpDPad.WhenPressed(mFasterDriveCommand);
+	mDriverDownDPad.WhenPressed(mSlowerDriveCommand);
+	mDriverButtonRMenu.WhenPressed(mFlipDriveCommand);
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
