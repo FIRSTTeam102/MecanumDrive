@@ -8,6 +8,7 @@
 #include <frc/XboxController.h>
 #include <frc/drive/MecanumDrive.h>
 #include <ctre/Phoenix.h>
+#include <cmath>
 
 #include "Constants.h"
 
