@@ -18,23 +18,23 @@ MecanumDrive::MecanumDrive():
 
 void MecanumDrive::drive() {
 	double flip = (mFlipped) ? -1.00 : 1.00;
-	double x = flip * mSpeed * getAxis(0, true); // kLeftX
-	double y = flip * mSpeed * -1.00 * getAxis(1, true); // kLeftY
+	double x = flip * mSpeed * getAxis(frc::XboxController::Axis::kLeftX, true);
+	double y = flip * mSpeed * -1.00 * getAxis(frc::XboxController::Axis::kLeftY, true);
 
-	double rotation = 0.75 * getAxis(4); // kRightX
+	double rotation = 0.75 * getAxis(frc::XboxController::Axis::kRightX);
 
 	mMecanumDrive.DriveCartesian(x, y, rotation);
-    printf("x: %f         y: %f        rot: %f\n", x, y, rotation);
+	printf("x: %f         y: %f        rot: %f\n", x, y, rotation);
 }
 
 void MecanumDrive::fasterDrive() {
 	mSpeed += 0.05;
-    if (mSpeed > 1.0) mSpeed = 1.0;
+	if (mSpeed > 1.0) mSpeed = 1.0;
 }
 
 void MecanumDrive::slowerDrive() {
 	mSpeed -= 0.05;
-    if (mSpeed < 0.15) mSpeed = 0.15;
+	if (mSpeed < 0.15) mSpeed = 0.15;
 }
 
 void MecanumDrive::flipDrive() {
@@ -45,8 +45,8 @@ void MecanumDrive::flipDrive() {
 void MecanumDrive::Periodic() {}
 
 // Deadzones
-double MecanumDrive::getAxis(int axis, bool square) {
-    double speed = mpDriverController->GetRawAxis(axis);
-    if (-0.1 < speed && speed < 0.1) { speed = 0; }
-    return square ? speed*speed : speed;
+double MecanumDrive::getAxis(frc::XboxController::Axis axis, bool square) {
+	double speed = mpDriverController->GetRawAxis((int)axis);
+	if (-0.1 < speed && speed < 0.1) { speed = 0; }
+	return speed; // square ? speed*speed : speed;
 }

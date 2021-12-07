@@ -33,7 +33,7 @@ class MecanumDrive : public frc2::SubsystemBase {
 		// Components (e.g. motor controllers and sensors) should generally be
 		// declared private and exposed only through public methods.
 
-		double getAxis(int axis, bool square = false);
+		double getAxis(frc::XboxController::Axis axis, bool square = false);
 
 		frc::XboxController *mpDriverController;
 
