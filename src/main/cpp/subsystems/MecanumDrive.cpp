@@ -47,6 +47,7 @@ void MecanumDrive::Periodic() {}
 // Deadzones
 double MecanumDrive::getAxis(frc::XboxController::Axis axis, bool square) {
 	double speed = mpDriverController->GetRawAxis((int)axis);
-	if (-0.1 < speed && speed < 0.1) { speed = 0; }
-	return speed; // square ? speed*speed : speed;
+	if (-0.15 < speed && speed < 0.15) { speed = 0; }
+	if (square) { speed = std::copysign(speed * speed, speed); }
+	return speed;
 }
